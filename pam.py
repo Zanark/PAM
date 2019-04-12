@@ -1,4 +1,5 @@
 import speech_recognition as sr
+#import keyboard_signals
 
 #print(sr.__version__)
 
@@ -12,6 +13,8 @@ with mic as src:
     print("sun liya")
 
 try:
-    print("\n\nRecognized o/p: "+r.recognize_google(audio))
+    result = r.recognize_google(audio)
+    print("\n\nRecognized o/p: "+result)
+
 except:
     pass
