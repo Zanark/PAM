@@ -27,7 +27,7 @@ def PAM_work(r, audio):
             sp.run(["firefox", "-new-tab", "http://kissanime.ru"])
 
         #-------------------lock check
-        x = re.findall("lock+|gotta go|need to go|susu", result)
+        x = re.findall("lock+|gotta go|need to go|susu|pee", result)
         print(x)
         if(len(x)>0):
             keyb.keyDown('winleft')
