@@ -41,6 +41,6 @@ r.energy_threshold = 350
 with mic as source:
     print("\n\nbol")
     r.adjust_for_ambient_noise(source) # we only need to calibrate once, before we start listening
-    audio = r.listen(source)
+    audio = r.listen(source, timeout=1, phrase_time_limit=7)
     PAM_work(r, audio)
     print("\nsun liya")
