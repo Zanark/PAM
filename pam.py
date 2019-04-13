@@ -26,9 +26,9 @@ def PAM_work(r, audio):
             sp.run(["firefox", "-new-tab", "http://kissanime.ru"])
     
     except sr.UnknownValueError:
-        print("Google Speech Recognition could not understand audio")
+        print("\n\nGoogle Speech Recognition could not understand audio")
     except sr.RequestError as e:
-        print("Could not request results from Google Speech Recognition service; {0}".format(e))
+        print("\n\nCould not request results from Google Speech Recognition service; {0}".format(e))
 
 ############################################################------PAM_work() ends
 
@@ -41,4 +41,4 @@ with mic as source:
     r.adjust_for_ambient_noise(source) # we only need to calibrate once, before we start listening
     audio = r.listen(source)
     PAM_work(r, audio)
-    print("sun liya")
+    print("\nsun liya")
