@@ -47,11 +47,12 @@ r = sr.Recognizer()
 mic = sr.Microphone()
 #sr.Microphone.list_microphone_names()
 r.dynamic_energy_threshold = False
-r.energy_threshold = 350
+r.energy_threshold = 50
 
-with mic as source:
-    print("\n\nbol")
-    r.adjust_for_ambient_noise(source) # we only need to calibrate once, before we start listening
-    audio = r.listen(source, timeout=5, phrase_time_limit=7)
-    PAM_work(r, audio)
-    print("\nsun liya")
+while True:
+    with mic as source:
+        print("\n\nbol")
+        r.adjust_for_ambient_noise(source) # we only need to calibrate once, before we start listening
+        audio = r.listen(source, timeout=5, phrase_time_limit=7)
+        PAM_work(r, audio)
+        print("\nsun liya")
