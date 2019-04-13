@@ -11,7 +11,7 @@ def PAM_work(r, audio):
     try:
         result = r.recognize_google(audio)
         print("\n\nRecognized o/p: "+result)
-        #sp.run(["alert", "--app-name=PAM", "What you said:\t"+result])
+        sp.run(["notify-send", "--expire-time=1500", "Hukumm:\t"+result])
 
         #-------------------terminal check
         x = re.findall("terminal+|command line|commandline", result, re.IGNORECASE)
@@ -53,14 +53,15 @@ def PAM_work(r, audio):
         x = re.findall("stop listening|stop+|terminate+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
+            sp.run(["notify-send", "--expire-time=1500", "Goodbye, Zanark"])
             sys.exit("Goobye Zanark")
     
     except sr.UnknownValueError:
         print("\n\nGoogle Speech Recognition could not understand audio")
-        #sp.run(["alert", "--app-name=PAM", "Google Speech Recognition could not understand audio"])
+        sp.run(["notify-send", "--expire-time=1500", "Google Speech Recognition could not understand audio"])
     except sr.RequestError as e:
         print("\n\nCould not request results from Google Speech Recognition service; {0}".format(e))
-        #sp.run(["alert", "--app-name=PAM", "Could not request results from Google Speech Recognition service; {0}".format(e)])
+        sp.run(["notify-send", "--expire-time=1500", "Could not request results from Google Speech Recognition service; {0}".format(e)])
 
 ############################################################------PAM_work() ends
 
