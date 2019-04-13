@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import pyautogui as keyb
 import re
+import subprocess as sp
 
 #print(sr.__version__)
 
@@ -16,6 +17,7 @@ with mic as src:
 try:
     result = r.recognize_google(audio)
     print("\n\nRecognized o/p: "+result)
+
     #terminal check
     x = re.findall("terminal+|command line|commandline", result)
     print(x)
@@ -23,6 +25,12 @@ try:
         keyb.keyDown('alt')
         keyb.press('enter')
         keyb.keyUp('alt')
+    
+    #watch anime
+    x = re.findall("anime+", result)
+    print(x)
+    if(len(x)>0):
+        sp.run(["firefox", "-new-tab", "http://kissanime.ru"])
     
 except sr.UnknownValueError:
     print("Google Speech Recognition could not understand audio")
