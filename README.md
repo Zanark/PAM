@@ -1,3 +1,6 @@
+<p align="center"><img src="./rem.svg"></p>
+
+
 # PAM
 My Personal Assistant
 
