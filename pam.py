@@ -40,6 +40,14 @@ def PAM_work(r, audio):
         if(len(x)>0):
             sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/popular"])
 
+        #-------------------Lets Pkay Minecraft!
+        x = re.findall("minecraft+", result)
+        print(x)
+        if(len(x)>0):
+            keyb.keyDown('winleft')
+            keyb.press('m')
+            keyb.keyUp('winleft')
+
     
     except sr.UnknownValueError:
         print("\n\nGoogle Speech Recognition could not understand audio")
