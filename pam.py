@@ -40,7 +40,7 @@ def PAM_work(r, audio):
         if(len(x)>0):
             sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/popular"])
 
-        #-------------------Lets Pkay Minecraft!
+        #-------------------Lets Play Minecraft!
         x = re.findall("minecraft+", result)
         print(x)
         if(len(x)>0):
