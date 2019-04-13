@@ -13,7 +13,7 @@ def PAM_work(r, audio):
         #sp.run(["alert", "--app-name=PAM", "What you said:\t"+result])
 
         #-------------------terminal check
-        x = re.findall("terminal+|command line|commandline", result)
+        x = re.findall("terminal+|command line|commandline", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             keyb.keyDown('alt')
@@ -21,13 +21,13 @@ def PAM_work(r, audio):
             keyb.keyUp('alt')
         
         #-------------------watch anime
-        x = re.findall("anime+", result)
+        x = re.findall("anime+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             sp.run(["firefox", "-new-tab", "http://kissanime.ru"])
 
         #-------------------lock check
-        x = re.findall("lock+|gotta go|need to go|susu|pee", result)
+        x = re.findall("lock+|gotta go|need to go|susu|pee", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             keyb.keyDown('winleft')
@@ -35,7 +35,7 @@ def PAM_work(r, audio):
             keyb.keyUp('winleft')
 
         #-------------------reddit/popular
-        x = re.findall("reddit+", result)
+        x = re.findall("reddit+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/popular"])
