@@ -11,7 +11,7 @@ def PAM_work(r, audio):
     try:
         result = r.recognize_google(audio)
         print("\n\nRecognized o/p: "+result)
-        sp.run(["notify-send", "--expire-time=1500", "Hukumm:\t"+result])
+        sp.run(["notify-send", "--expire-time=1500", "--icon=/home/zanark/CODING/GitHub/PAM/rem.svg", "PAM", "Hukumm:\t"+result])
 
         #-------------------terminal check
         x = re.findall("terminal+|command line|commandline", result, re.IGNORECASE)
