@@ -2,6 +2,7 @@ import speech_recognition as sr
 import pyautogui as keyb
 import re
 import subprocess as sp
+import time
 
 #print(sr.__version__)
 
