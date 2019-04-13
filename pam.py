@@ -3,6 +3,7 @@ import pyautogui as keyb
 import re
 import subprocess as sp
 import time
+import sys
 
 #print(sr.__version__)
 
@@ -48,6 +49,11 @@ def PAM_work(r, audio):
             keyb.press('m')
             keyb.keyUp('winleft')
 
+        #-------------------IF PAM IS ASKED TO STOP
+        x = re.findall("stop listening|stop+|terminate+", result, re.IGNORECASE)
+        print(x)
+        if(len(x)>0):
+            sys.exit("Goobye Zanark")
     
     except sr.UnknownValueError:
         print("\n\nGoogle Speech Recognition could not understand audio")
