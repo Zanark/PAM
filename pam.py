@@ -16,11 +16,12 @@ with mic as src:
 try:
     result = r.recognize_google(audio)
     print("\n\nRecognized o/p: "+result)
-    x = re.search("terminal+", result)
+    x = re.findall("terminal+", result)
     print(x)
-    keyb.keyDown('alt')
-    keyb.press('enter')
-    keyb.keyUp('alt')
+    if(len(x)>0):
+        keyb.keyDown('alt')
+        keyb.press('enter')
+        keyb.keyUp('alt')
     
 except:
     pass
