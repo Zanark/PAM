@@ -1,5 +1,6 @@
 import speech_recognition as sr
 import pyautogui as keyb
+import re
 
 #print(sr.__version__)
 
@@ -15,6 +16,8 @@ with mic as src:
 try:
     result = r.recognize_google(audio)
     print("\n\nRecognized o/p: "+result)
+    x = re.search("terminal+", result)
+    print(x)
     keyb.keyDown('alt')
     keyb.press('enter')
     keyb.keyUp('alt')
