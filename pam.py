@@ -35,6 +35,8 @@ def PAM_work(r, audio):
 r = sr.Recognizer()
 mic = sr.Microphone()
 #sr.Microphone.list_microphone_names()
+r.dynamic_energy_threshold = False
+r.energy_threshold = 400
 
 with mic as source:
     print("\n\nbol")
