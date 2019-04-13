@@ -16,12 +16,15 @@ with mic as src:
 try:
     result = r.recognize_google(audio)
     print("\n\nRecognized o/p: "+result)
-    x = re.findall("terminal+", result)
+    #terminal check
+    x = re.findall("terminal+|command line|commandline", result)
     print(x)
     if(len(x)>0):
         keyb.keyDown('alt')
         keyb.press('enter')
         keyb.keyUp('alt')
     
-except:
-    pass
+except sr.UnknownValueError:
+    print("Google Speech Recognition could not understand audio")
+except sr.RequestError as e:
+    print("Could not request results from Google Speech Recognition service; {0}".format(e))
