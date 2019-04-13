@@ -11,7 +11,7 @@ def PAM_work(r, audio):
         result = r.recognize_google(audio)
         print("\n\nRecognized o/p: "+result)
 
-        #terminal check
+        #-------------------terminal check
         x = re.findall("terminal+|command line|commandline", result)
         print(x)
         if(len(x)>0):
@@ -19,7 +19,7 @@ def PAM_work(r, audio):
             keyb.press('enter')
             keyb.keyUp('alt')
         
-        #watch anime
+        #-------------------watch anime
         x = re.findall("anime+", result)
         print(x)
         if(len(x)>0):
