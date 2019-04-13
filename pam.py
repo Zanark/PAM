@@ -54,7 +54,7 @@ r = sr.Recognizer()
 mic = sr.Microphone()
 #sr.Microphone.list_microphone_names()
 r.dynamic_energy_threshold = False
-r.energy_threshold = 50
+r.energy_threshold = 350
 
 while True:
     with mic as source:
