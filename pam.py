@@ -33,6 +33,13 @@ def PAM_work(r, audio):
             keyb.keyDown('winleft')
             keyb.press('v')
             keyb.keyUp('winleft')
+
+        #-------------------reddit/popular
+        x = re.findall("reddit+", result)
+        print(x)
+        if(len(x)>0):
+            sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/popular"])
+
     
     except sr.UnknownValueError:
         print("\n\nGoogle Speech Recognition could not understand audio")
