@@ -41,7 +41,7 @@ def PAM_work(r, audio):
             sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/popular"])
 
         #-------------------Lets Play Minecraft!
-        x = re.findall("minecraft+", result)
+        x = re.findall("minecraft+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             keyb.keyDown('winleft')
