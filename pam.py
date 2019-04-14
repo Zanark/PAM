@@ -41,6 +41,12 @@ def PAM_work(r, audio):
         if(len(x)>0):
             sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/popular"])
 
+        #-------------------reddit/r/unixporn
+        x = re.findall("unix+|porn+|unix porn|nix|ricing subreddit|ricing thread", result, re.IGNORECASE)
+        print(x)
+        if(len(x)>0):
+            sp.run(["firefox", "-new-tab", "https://www.reddit.com/r/unixporn"])
+
         #-------------------Lets Play Minecraft!
         x = re.findall("minecraft+", result, re.IGNORECASE)
         print(x)
