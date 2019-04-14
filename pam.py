@@ -13,7 +13,7 @@ def PAM_work(r, audio):
         print("\n\nRecognized o/p: "+result)
         sp.run(["notify-send", "--expire-time=1500", "--icon=/home/zanark/CODING/GitHub/PAM/rem.svg", "PAM", "You said:  "+result])
 
-        #-------------------terminal check
+        #-------------------open a terminal
         x = re.findall("terminal+|command line|commandline", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
@@ -21,13 +21,13 @@ def PAM_work(r, audio):
             keyb.press('enter')
             keyb.keyUp('alt')
         
-        #-------------------watch anime
+        #-------------------Lets watch anime!
         x = re.findall("anime+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             sp.run(["firefox", "-new-tab", "http://kissanime.ru"])
 
-        #-------------------lock check
+        #-------------------lock my screen
         x = re.findall("lock+|gotta go|need to go|susu|pee", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
