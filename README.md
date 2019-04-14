@@ -1,4 +1,4 @@
-<p align="center"><img src="./rem.png"></p>
+<p align="center"><img src="./rem.png" width="150"></p>
 
 
 # PAM
