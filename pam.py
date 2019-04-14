@@ -55,6 +55,12 @@ def PAM_work(r, audio):
             keyb.press('m')
             keyb.keyUp('winleft')
 
+        #-------------------PAM on ITER
+        x = re.findall("i t e r|iter|[iter][iter][iter][iter]", result, re.IGNORECASE)
+        print(x)
+        if(len(x)>0):
+            sp.run(["notify-send", "--expire-time=2000", "--icon=/home/zanark/CODING/GitHub/PAM/rem.svg", "PAM", "ITER ka maa ka bhosda"])
+
         #-------------------IF PAM IS ASKED TO STOP
         x = re.findall("stop listening|stop+|terminate+", result, re.IGNORECASE)
         print(x)
