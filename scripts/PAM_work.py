@@ -1,3 +1,4 @@
+import speech_recognition as sr
 import pyautogui as keyb
 import re
 import subprocess as sp
@@ -72,6 +73,7 @@ def tasks(r, audio):
     except sr.UnknownValueError:
         print("\n\nGoogle Speech Recognition could not understand audio")
         sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../rem.svg", "PAM", "Google Speech Recognition could not understand audio"])
+        
     except sr.RequestError as e:
         print("\n\nCould not request results from Google Speech Recognition service; {0}".format(e))
         sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../rem.svg", "PAM", "Could not request results from Google Speech Recognition service; {0}".format(e)])
