@@ -1,9 +1,7 @@
-<p align="center"><img src="./rem.png" width="150"></p>
-
+<p align="center"><img src="./assets/rem.png" width="150"></p>
 
 # PAM
 My Personal Assistant
-
 
 ## Things I'll add in future
 
