@@ -1,5 +1,5 @@
 import speech_recognition as sr
-import PAM_work
+from PAM_work import *
 #print(sr.__version__)
 
 
