@@ -12,7 +12,7 @@ def tasks(r, audio):
     try:
         result = r.recognize_google(audio)
         print("\n\nRecognized o/p: "+result)
-        sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "You said:  "+result])
+        sp.run(["notify-send", "--expire-time=1800", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "You said:  "+result])
 
         #-------------------open a terminal
         x = re.findall("terminal+|command line|commandline", result, re.IGNORECASE)
