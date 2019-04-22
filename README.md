@@ -9,3 +9,4 @@ My Personal Assistant
 - [ ] More day to day tasks
 - [ ] Notice me Senpai/Goshunji-sama
 - [ ] Search google using PAM
+- [ ] Open and close windows and processes
