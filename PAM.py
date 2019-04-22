@@ -13,6 +13,6 @@ while True:
     with mic as source:
         print("\n\nbol")
         r.adjust_for_ambient_noise(source, duration=0.5) # we only need to calibrate once, before we start listening
-        audio = r.listen(source, timeout=5, phrase_time_limit=7)
+        audio = r.listen(source, timeout=3, phrase_time_limit=4)
         tasks(r, audio)
         print("\nsun liya")

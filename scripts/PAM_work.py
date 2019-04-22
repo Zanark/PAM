@@ -61,21 +61,21 @@ def tasks(r, audio):
         x = re.findall("i t e r|iter|[iter][iter][iter][iter]|college", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
-            sp.run(["notify-send", "--expire-time=2000", "--icon="+FILE_LOC+"/../rem.svg", "PAM", "ITER ka maa ka bhosda"])
+            sp.run(["notify-send", "--expire-time=2000", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "ITER ka maa ka bhosda"])
 
         #-------------------IF PAM IS ASKED TO STOP
         x = re.findall("stop listening|stop+|terminate+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
-            sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../rem.svg", "PAM", "Goodbye, Zanark"])
+            sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "Goodbye, Zanark"])
             sys.exit("Goobye Zanark")
     
     except sr.UnknownValueError:
         print("\n\nGoogle Speech Recognition could not understand audio")
-        sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../rem.svg", "PAM", "Google Speech Recognition could not understand audio"])
-        
+        sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "Google Speech Recognition could not understand audio"])
+
     except sr.RequestError as e:
         print("\n\nCould not request results from Google Speech Recognition service; {0}".format(e))
-        sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../rem.svg", "PAM", "Could not request results from Google Speech Recognition service; {0}".format(e)])
+        sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "Could not request results from Google Speech Recognition service; {0}".format(e)])
 
 ############################################################------PAM_work() ends
