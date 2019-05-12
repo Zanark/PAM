@@ -4,16 +4,23 @@ import re
 import subprocess as sp
 import time
 import sys
+from gtts import gTTS
 import os
 
 FILE_LOC = os.path.dirname(os.path.realpath(__file__))
 #print(FILE_LOC)
+
+def speak(sentence):
+    tts = gTTS(sentence, lang="hi")
+    tts.save('PAM_auOP.mp3')
+    os.system('mpg123 PAM_auOP.mp3')
 
 def tasks(r, audio):
     try:
         result = r.recognize_google(audio)
         print("\n\nRecognized o/p: "+result)
         sp.run(["notify-send", "--expire-time=1800", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "You said:  "+result])
+        speak("You said:  "+result)
 
         #-------------------open a terminal
         x = re.findall("terminal+|command line|commandline", result, re.IGNORECASE)
