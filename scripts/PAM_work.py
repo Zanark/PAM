@@ -69,6 +69,7 @@ def tasks(r, audio):
         print(x)
         if(len(x)>0):
             sp.run(["notify-send", "--expire-time=2000", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "ITER ka maa ka bhosda"])
+            speak("I T E R ka maa ka bhosda")
 
         #-------------------IF PAM IS ASKED TO STOP
         x = re.findall("stop listening|stop+|terminate+", result, re.IGNORECASE)
