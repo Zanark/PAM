@@ -1,16 +1,9 @@
-import pyttsx3 as tts
-import time
+from gtts import gTTS
+import os
 
-engine = tts.init()
-voices = engine.getProperty('voices')
-print(len(voices))
-for voice in voices:
-    print(voice)
-    if(voice.name != 'english'):
-        continue
-    engine.setProperty('voice', 'english+f3')
-    engine.say('The quick brown fox jumped over the lazy dog.')
-    time.sleep(2)
-    engine.runAndWait()
+def speak(sentence):
+    tts = gTTS(sentence, lang="hi")
+    tts.save('PAM_auOP.mp3')
+    os.system('mpg123 PAM_auOP.mp3')
 
-
+speak('Hello there Zanark')
