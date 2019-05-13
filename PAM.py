@@ -9,7 +9,7 @@ mic = sr.Microphone()
 r.dynamic_energy_threshold = False
 r.energy_threshold = 400
 
-speak('HHello sir')
+speak('Konichiwa Goshujin-sama', 'ja')
 
 while True:
     with mic as source:

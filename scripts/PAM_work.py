@@ -7,13 +7,26 @@ import sys
 from gtts import gTTS
 import os
 
+from pydub import AudioSegment as AS
+
 FILE_LOC = os.path.dirname(os.path.realpath(__file__))
 #print(FILE_LOC)
 
-def speak(sentence):
-    tts = gTTS(sentence, lang="hi")
-    tts.save('PAM_auOP.mp3')
-    os.system('mpg123 PAM_auOP.mp3')
+def speak(sentence, lng):
+    tts = gTTS(sentence, lang=lng)      #gTTS at work
+    tts.save('auOP.mp3')                #saving as mp3
+    tts_op = AS.from_mp3('auOP.mp3')
+    tts_op.export('auOP.wav', format="wav") #making a wav file with same audio
+    
+    sound = AS.from_file('auOP.wav', format="wav")  #using the wav file for increasing pitch and frame rate
+    new_sample_rate = int(sound.frame_rate * 1.4)
+    
+    hipitch_sound = sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+    hipitch_sound = hipitch_sound.set_frame_rate(44100)
+    hipitch_sound.export("auOP-hp.wav", format="wav")
+    
+    os.system('aplay ./auOP-hp.wav')
+    os.system('rm auOP.wav auOP.mp3')
 
 def tasks(r, audio):
     try:
@@ -69,14 +82,14 @@ def tasks(r, audio):
         print(x)
         if(len(x)>0):
             sp.run(["notify-send", "--expire-time=2000", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "ITER ka maa ka bhosda"])
-            speak("I T E R ka maa ka bhosda")
+            speak("I T E R ka maa ka bhosda", "hi")
 
         #-------------------IF PAM IS ASKED TO STOP
         x = re.findall("stop listening|stop+|terminate+", result, re.IGNORECASE)
         print(x)
         if(len(x)>0):
             sp.run(["notify-send", "--expire-time=1500", "--icon="+FILE_LOC+"/../assets/rem.svg", "PAM", "Goodbye, Zanark"])
-            speak("Goodbye Zaanark!")
+            speak("Sayonara Zaanark!", "ja")
             sys.exit("Goobye Zanark")
     
     except sr.UnknownValueError:
