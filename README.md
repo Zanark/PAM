@@ -12,3 +12,4 @@ My Personal Assistant
 - [ ] Search google using PAM
 - [ ] Open and close windows and processes
 - [ ] Add something to indicate its listening
+- [ ] Play voice on diffrent thread
