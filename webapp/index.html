@@ -5,8 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PAM Generator</title>
+
+    <script src="http:/code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+            $(function () {
+                $(".repeat").on('click', function (e) {
+                    e.preventDefault();// to prevent form submit
+                    var $self = $(this);
+                    $self.before($('.repeatable').clone().removeClass('repeatable'));
+                });
+            });
+    </script>
+
 </head>
 <body>
-    
+    <div>
+        <div class="repeatable">
+            <br><br>
+            If: <br>
+            <input type="text" placeholder="condition........"><br><br><br>
+            Then : <br>
+            <input type="text" placeholder="do this">
+            <br><br>
+        </div>
+        <button class="repeat">Add Another</button>
+    </div>
 </body>
 </html>
