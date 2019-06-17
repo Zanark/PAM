@@ -13,3 +13,4 @@ My Personal Assistant
 - [ ] Open and close windows and processes
 - [ ] Add something to indicate its listening
 - [ ] Play voice on diffrent thread
+- [ ] Create a log of all the voice commands made by the user and clear the logfile after a certain amount of time
